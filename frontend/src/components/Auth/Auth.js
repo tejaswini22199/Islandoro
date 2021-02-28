@@ -39,20 +39,20 @@ const SignUp = () => {
     }
   };
 
-  // const googleSuccess = async (res) => {
-  //   const result = res?.profileObj;
-  //   const token = res?.tokenId;
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+    console.log(res);
+    try {
+      dispatch({ type: 'AUTH', data: { result, token } });
 
-  //   try {
-  //     dispatch({ type: 'AUTH', data: { result, token } });
+      history.push('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  //     history.push('/');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // // const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
+  const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -78,8 +78,8 @@ const SignUp = () => {
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
-          {/* <GoogleLogin
-            clientId="564033717568-e5p23rhvcs4i6kffgsbci1d64r8hp6fn.apps.googleusercontent.com"
+          <GoogleLogin
+          clientId={process.env.REACT_APP_client_id}
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                 Google Sign In
@@ -88,7 +88,7 @@ const SignUp = () => {
             onSuccess={googleSuccess}
             onFailure={googleError}
             cookiePolicy="single_host_origin"
-          /> */}
+          />
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
