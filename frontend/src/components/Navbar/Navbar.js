@@ -31,14 +31,14 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
-  }, [location]);
+  }, [location,logout,user]);
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
-      <div className={classes.brandContainer}>
-        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">ProdMeter</Typography>
-        {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
-      </div>
+    // <AppBar className={classes.appBar} position="static" color="inherit">
+    //   <div className={classes.brandContainer}>
+    //     {/* <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">ProdMeter</Typography> */}
+    //     {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
+    //   </div>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>
@@ -47,10 +47,10 @@ const Navbar = () => {
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>
         ) : (
-          <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+          <Button className="signinBtn"  component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
         )}
       </Toolbar>
-    </AppBar>
+    // </AppBar>
   );
 };
 
