@@ -3,7 +3,7 @@ import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
-
+import image0 from '../../images/image0.jpg'
 import useStyles from './styles';
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
   const location = useLocation();
   const history = useHistory();
   const classes = useStyles();
-
+  const [BackgroundImg,setBackgroundImg]=useState(`url(${image0})`);
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
 
@@ -31,7 +31,7 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
-  }, [location,logout,user]);
+  }, [location]);
 
   return (
     // <AppBar className={classes.appBar} position="static" color="inherit">
@@ -43,7 +43,7 @@ const Navbar = () => {
         {user?.result ? (
           <div className={classes.profile}>
             <Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
-            <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography>
+            <Typography className={classes.userName} variant="h6">Welcome {user?.result.name}</Typography>
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>
         ) : (

@@ -4,8 +4,10 @@ import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Auth from './components/Auth/Auth'
+import './App.css'
 function App() {
   return (
+    <div className="main">
     <BrowserRouter>
     <Container maxWidth="lg">
       <Navbar />
@@ -15,6 +17,7 @@ function App() {
       </Switch>
     </Container>
   </BrowserRouter>
+  </div>
   );
 }
 

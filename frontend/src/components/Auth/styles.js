@@ -1,6 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
+  // LoginBg:{
+  //   background-image: url("./images/image0.jpg");
+
+  // },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -17,7 +21,7 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
   width:'330',

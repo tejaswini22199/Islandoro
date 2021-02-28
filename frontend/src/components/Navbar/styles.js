@@ -31,10 +31,13 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '400px',
+    height:'100%',
+   
   },
   userName: {
     display: 'flex',
     alignItems: 'center',
+    color:'white',
   },
   brandContainer: {
     display: 'flex',
